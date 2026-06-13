@@ -132,9 +132,9 @@ export default function Home() {
     if (savedTheme) {
       setTheme(savedTheme);
       document.documentElement.setAttribute('data-theme', savedTheme);
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      setTheme('dark');
-      document.documentElement.setAttribute('data-theme', 'dark');
+    } else {
+      setTheme('light');
+      document.documentElement.setAttribute('data-theme', 'light');
     }
   }, []);
 
@@ -313,21 +313,21 @@ export default function Home() {
               variants={fadeInUp}
               key={project.id}
               onClick={() => setSelectedProject(project)}
-              style={{position: 'relative', padding: '32px', borderRadius: '16px', background: 'var(--card-bg)', display: 'flex', flexDirection: 'column', overflow: 'hidden', cursor: 'pointer', transition: 'all 0.3s ease', border: '1px solid var(--border-color)'}}
-              onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-6px)'; e.currentTarget.style.borderColor = 'var(--border-hover)'; }}
-              onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.borderColor = 'var(--border-color)'; }}
+              style={{position: 'relative', padding: '32px', borderRadius: '16px', background: '#161616', display: 'flex', flexDirection: 'column', overflow: 'hidden', cursor: 'pointer', transition: 'all 0.3s ease', border: '1px solid #2a2a2a'}}
+              onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-6px)'; e.currentTarget.style.borderColor = '#10b981'; }}
+              onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.borderColor = '#2a2a2a'; }}
             >
-              <div style={{position: 'absolute', bottom: '-35px', right: '-15px', color: 'var(--text-inverse)', opacity: 0.05, fontSize: '12rem', fontWeight: 800, lineHeight: 1, pointerEvents: 'none', zIndex: 0}}>{project.id}</div>
+              <div style={{position: 'absolute', bottom: '-35px', right: '-15px', color: 'rgba(255,255,255,0.08)', fontSize: '12rem', fontWeight: 800, lineHeight: 1, pointerEvents: 'none', zIndex: 0}}>{project.id}</div>
               <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '32px', zIndex: 1}}>
-                <h3 style={{fontSize: '1.2rem', fontWeight: 500, color: 'var(--text-inverse)', maxWidth: '80%'}}>{project.title}</h3>
-                <span style={{fontSize: '1.4rem', color: 'var(--accent-text)', fontWeight: 500}}>↗</span>
+                <h3 style={{fontSize: '1.2rem', fontWeight: 500, color: '#ffffff', maxWidth: '80%'}}>{project.title}</h3>
+                <span style={{fontSize: '1.4rem', color: '#10b981', fontWeight: 500}}>↗</span>
               </div>
-              <p style={{fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: '40px', flexGrow: 1, zIndex: 1, maxWidth: '90%'}}>
+              <p style={{fontSize: '0.9rem', color: '#a3a3a3', lineHeight: 1.6, marginBottom: '40px', flexGrow: 1, zIndex: 1, maxWidth: '90%'}}>
                 {project.shortDesc}
               </p>
               <div style={{display: 'flex', flexWrap: 'wrap', gap: '8px', zIndex: 1}}>
                 {project.tags.map(tag => (
-                  <span key={tag} style={{padding: '6px 14px', background: 'var(--text-inverse)', color: 'var(--text-inverse)', opacity: 0.8, borderRadius: '100px', fontSize: '0.75rem', fontWeight: 500, border: '1px solid var(--border-color)'}}>{tag}</span>
+                  <span key={tag} style={{padding: '6px 14px', background: 'rgba(255,255,255,0.05)', color: '#e5e5e5', borderRadius: '100px', fontSize: '0.75rem', fontWeight: 500, border: '1px solid rgba(255,255,255,0.1)'}}>{tag}</span>
                 ))}
               </div>
             </motion.div>
@@ -350,16 +350,16 @@ export default function Home() {
             {/* Service 1 */}
             <motion.div 
               variants={fadeInUp}
-              style={{padding: '32px', borderRadius: '16px', background: 'var(--card-bg)', border: '1px solid var(--border-color)', transition: 'all 0.3s ease', display: 'flex', flexDirection: 'column', gap: '20px', cursor: 'default'}}
-              onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-6px)'; e.currentTarget.style.borderColor = 'var(--border-hover)'; e.currentTarget.style.boxShadow = '0 10px 30px -10px rgba(16, 185, 129, 0.15)'; }}
-              onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.borderColor = 'var(--border-color)'; e.currentTarget.style.boxShadow = 'none'; }}
+              style={{padding: '32px', borderRadius: '16px', background: '#161616', border: '1px solid #2a2a2a', transition: 'all 0.3s ease', display: 'flex', flexDirection: 'column', gap: '20px', cursor: 'default'}}
+              onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-6px)'; e.currentTarget.style.borderColor = '#10b981'; e.currentTarget.style.boxShadow = '0 10px 30px -10px rgba(16, 185, 129, 0.15)'; }}
+              onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.borderColor = '#2a2a2a'; e.currentTarget.style.boxShadow = 'none'; }}
             >
-              <div style={{width: '56px', height: '56px', borderRadius: '14px', background: 'var(--accent-color)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent-text)'}}>
+              <div style={{width: '56px', height: '56px', borderRadius: '14px', background: 'rgba(16, 185, 129, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#10b981'}}>
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
               </div>
               <div>
-                <h3 style={{fontSize: '1.25rem', fontWeight: 600, color: 'var(--text-inverse)', marginBottom: '12px'}}>Front-End Development</h3>
-                <p style={{fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.6}}>
+                <h3 style={{fontSize: '1.25rem', fontWeight: 600, color: '#ffffff', marginBottom: '12px'}}>Front-End Development</h3>
+                <p style={{fontSize: '0.9rem', color: '#a3a3a3', lineHeight: 1.6}}>
                   Develop responsive and engaging user interfaces from design to implementation, ensuring exceptional user experience through effective UI/UX design.
                 </p>
               </div>
@@ -368,16 +368,16 @@ export default function Home() {
             {/* Service 2 */}
             <motion.div 
               variants={fadeInUp}
-              style={{padding: '32px', borderRadius: '16px', background: 'var(--card-bg)', border: '1px solid var(--border-color)', transition: 'all 0.3s ease', display: 'flex', flexDirection: 'column', gap: '20px', cursor: 'default'}}
-              onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-6px)'; e.currentTarget.style.borderColor = 'var(--border-hover)'; e.currentTarget.style.boxShadow = '0 10px 30px -10px rgba(16, 185, 129, 0.15)'; }}
-              onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.borderColor = 'var(--border-color)'; e.currentTarget.style.boxShadow = 'none'; }}
+              style={{padding: '32px', borderRadius: '16px', background: '#161616', border: '1px solid #2a2a2a', transition: 'all 0.3s ease', display: 'flex', flexDirection: 'column', gap: '20px', cursor: 'default'}}
+              onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-6px)'; e.currentTarget.style.borderColor = '#10b981'; e.currentTarget.style.boxShadow = '0 10px 30px -10px rgba(16, 185, 129, 0.15)'; }}
+              onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.borderColor = '#2a2a2a'; e.currentTarget.style.boxShadow = 'none'; }}
             >
-              <div style={{width: '56px', height: '56px', borderRadius: '14px', background: 'var(--accent-color)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent-text)'}}>
+              <div style={{width: '56px', height: '56px', borderRadius: '14px', background: 'rgba(16, 185, 129, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#10b981'}}>
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
               </div>
               <div>
-                <h3 style={{fontSize: '1.25rem', fontWeight: 600, color: 'var(--text-inverse)', marginBottom: '12px'}}>Project Management</h3>
-                <p style={{fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.6}}>
+                <h3 style={{fontSize: '1.25rem', fontWeight: 600, color: '#ffffff', marginBottom: '12px'}}>Project Management</h3>
+                <p style={{fontSize: '0.9rem', color: '#a3a3a3', lineHeight: 1.6}}>
                   Plan, organize, and manage web development projects from start to finish. Collaborate with clients and teams to ensure projects are completed on schedule.
                 </p>
               </div>
@@ -386,16 +386,16 @@ export default function Home() {
             {/* Service 3 */}
             <motion.div 
               variants={fadeInUp}
-              style={{padding: '32px', borderRadius: '16px', background: 'var(--card-bg)', border: '1px solid var(--border-color)', transition: 'all 0.3s ease', display: 'flex', flexDirection: 'column', gap: '20px', cursor: 'default'}}
-              onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-6px)'; e.currentTarget.style.borderColor = 'var(--border-hover)'; e.currentTarget.style.boxShadow = '0 10px 30px -10px rgba(16, 185, 129, 0.15)'; }}
-              onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.borderColor = 'var(--border-color)'; e.currentTarget.style.boxShadow = 'none'; }}
+              style={{padding: '32px', borderRadius: '16px', background: '#161616', border: '1px solid #2a2a2a', transition: 'all 0.3s ease', display: 'flex', flexDirection: 'column', gap: '20px', cursor: 'default'}}
+              onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-6px)'; e.currentTarget.style.borderColor = '#10b981'; e.currentTarget.style.boxShadow = '0 10px 30px -10px rgba(16, 185, 129, 0.15)'; }}
+              onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.borderColor = '#2a2a2a'; e.currentTarget.style.boxShadow = 'none'; }}
             >
-              <div style={{width: '56px', height: '56px', borderRadius: '14px', background: 'var(--accent-color)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent-text)'}}>
+              <div style={{width: '56px', height: '56px', borderRadius: '14px', background: 'rgba(16, 185, 129, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#10b981'}}>
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
               </div>
               <div>
-                <h3 style={{fontSize: '1.25rem', fontWeight: 600, color: 'var(--text-inverse)', marginBottom: '12px'}}>Back-End Development</h3>
-                <p style={{fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.6}}>
+                <h3 style={{fontSize: '1.25rem', fontWeight: 600, color: '#ffffff', marginBottom: '12px'}}>Back-End Development</h3>
+                <p style={{fontSize: '0.9rem', color: '#a3a3a3', lineHeight: 1.6}}>
                   Create and manage servers, databases, and application logic, and provide APIs and integration with third-party services.
                 </p>
               </div>
@@ -404,16 +404,16 @@ export default function Home() {
             {/* Service 4 */}
             <motion.div 
               variants={fadeInUp}
-              style={{padding: '32px', borderRadius: '16px', background: 'var(--card-bg)', border: '1px solid var(--border-color)', transition: 'all 0.3s ease', display: 'flex', flexDirection: 'column', gap: '20px', cursor: 'default'}}
-              onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-6px)'; e.currentTarget.style.borderColor = 'var(--border-hover)'; e.currentTarget.style.boxShadow = '0 10px 30px -10px rgba(16, 185, 129, 0.15)'; }}
-              onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.borderColor = 'var(--border-color)'; e.currentTarget.style.boxShadow = 'none'; }}
+              style={{padding: '32px', borderRadius: '16px', background: '#161616', border: '1px solid #2a2a2a', transition: 'all 0.3s ease', display: 'flex', flexDirection: 'column', gap: '20px', cursor: 'default'}}
+              onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-6px)'; e.currentTarget.style.borderColor = '#10b981'; e.currentTarget.style.boxShadow = '0 10px 30px -10px rgba(16, 185, 129, 0.15)'; }}
+              onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.borderColor = '#2a2a2a'; e.currentTarget.style.boxShadow = 'none'; }}
             >
-              <div style={{width: '56px', height: '56px', borderRadius: '14px', background: 'var(--accent-color)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent-text)'}}>
+              <div style={{width: '56px', height: '56px', borderRadius: '14px', background: 'rgba(16, 185, 129, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#10b981'}}>
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
               </div>
               <div>
-                <h3 style={{fontSize: '1.25rem', fontWeight: 600, color: 'var(--text-inverse)', marginBottom: '12px'}}>Maintenance & Support</h3>
-                <p style={{fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.6}}>
+                <h3 style={{fontSize: '1.25rem', fontWeight: 600, color: '#ffffff', marginBottom: '12px'}}>Maintenance & Support</h3>
+                <p style={{fontSize: '0.9rem', color: '#a3a3a3', lineHeight: 1.6}}>
                   Monitor website performance and perform regular maintenance to ensure security and speed. Provide technical support according to client needs.
                 </p>
               </div>
@@ -476,13 +476,13 @@ export default function Home() {
         className="contact-section"
       >
         <motion.div variants={fadeInUp} className="contact-content">
-          <h2 style={{fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 300, letterSpacing: '-0.02em', marginBottom: '16px', lineHeight: 1.1, color: 'var(--text-primary)'}}>
+          <h2 style={{fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 300, letterSpacing: '-0.02em', marginBottom: '16px', lineHeight: 1.1}}>
             Have an idea?<br/>Let&apos;s build it together.
           </h2>
-          <p style={{fontSize: '1.1rem', color: 'var(--text-secondary)', maxWidth: '500px', margin: '0 auto'}}>
+          <p style={{fontSize: '1.1rem', color: '#a3a3a3', maxWidth: '500px', margin: '0 auto'}}>
             I&apos;m currently available for new projects and open to exciting freelance opportunities. Feel free to reach out if you want to collaborate!
           </p>
-          <a href="mailto:triard78@gmail.com" className="btn-black" style={{background: 'var(--accent-text)', color: 'var(--bg-color)'}}>
+          <a href="mailto:triard78@gmail.com" className="btn-gold">
             Start a Project ↗
           </a>
         </motion.div>
