@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Tri Ardi - Professional Portfolio
 
-## Getting Started
+Welcome to the source code of my personal web portfolio! This repository showcases my projects, skills, and services as a freelance Full-Stack Web Developer. The design emphasizes a sleek, dark-themed, glassmorphism UI with smooth, professional animations.
 
-First, run the development server:
+## 🚀 Technology Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+This project is built using modern web technologies to ensure optimal performance, SEO, and developer experience:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Framework:** [Next.js](https://nextjs.org/) (App Router)
+- **Library:** [React 19](https://react.dev/)
+- **Animations:** [Framer Motion](https://www.framer.com/motion/)
+- **Styling:** Custom Vanilla CSS with CSS Variables (`globals.css`)
+- **Language:** TypeScript
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ✨ Key Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Responsive Design:** Fully responsive layout that adapts seamlessly to desktop, tablet, and mobile screens.
+- **Premium Aesthetics:** Modern dark mode aesthetic utilizing CSS blur effects (backdrop-filter) and custom gradient lighting.
+- **Micro-Animations:** Engaging, subtle micro-interactions powered by Framer Motion (e.g., floating cards, glowing orbs, scroll-triggered fade-ins).
+- **Bento Grid Layout:** Modern grid system for showcasing projects efficiently and elegantly.
+- **Dynamic Projects Showcase:** Detailed sections for explaining project challenges, roles, and outcomes.
 
-## Learn More
+## 🛠️ Getting Started
 
-To learn more about Next.js, take a look at the following resources:
+To run this project locally, follow these steps:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Prerequisites
+Make sure you have [Node.js](https://nodejs.org/) installed on your machine.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Installation
 
-## Deploy on Vercel
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/triard-portfolio.git
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd triard
+   ```
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+4. Start the development server:
+   ```bash
+   npm run dev
+   ```
+5. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📁 Project Structure
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `src/app/page.tsx`: The main landing page containing the Hero, About, Projects, and Services sections.
+- `src/app/globals.css`: The global stylesheet containing all design tokens (CSS variables), layout rules, responsive media queries, and utility classes.
+- `src/app/layout.tsx`: The root layout defining the document structure and SEO metadata.
+
+## 🤝 Let's Connect!
+
+I am currently open to freelance opportunities and collaborations. If you have a project in mind, need a system built, or just want to say hi, feel free to reach out!
+
+- **Email:** triard78@gmail.com
+- **Notion Portfolio:** [Tri Ardi](https://app.notion.com/p/Tri-Ardi)
+
+---
+
+*Designed and developed with ❤️ by Tri Ardi.*
