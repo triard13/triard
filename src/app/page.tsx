@@ -89,11 +89,42 @@ const projectsData: Project[] = [
   },
   {
     id: 3,
-    title: "Flight Planning System",
-    shortDesc: "I contributed to the development of a Flight Planning System, which involved creating tools for efficient flight route planning and management. My role included optimizing database queries, ensuring system reliability, and implementing.",
-    tags: ["React", "Python", "Git", "TypeScript"],
-    fullDesc: "Detailed case study for Flight Planning System. This will showcase the route planning algorithms, query optimizations, and user interface designed for aviation professionals.",
-    link: "#"
+    title: "KalaDana",
+    image: "/kaladana.png",
+    shortDesc: "A comprehensive personal finance and wealth management web application designed to help users track expenses, manage budgets, and monitor investment portfolios efficiently.",
+    tags: ["Next.js", "Tailwind CSS", "Supabase", "Recharts"],
+    link: "#",
+    fullDesc: (
+      <div style={{display: 'flex', flexDirection: 'column', gap: '24px'}}>
+        <div>
+          <strong style={{color: '#000', fontSize: '1.1rem'}}>The Challenge:</strong>
+          <p style={{marginTop: '8px'}}>The challenge was to build a secure, real-time financial tracking application that handles complex data visualization while remaining intuitive for everyday users. It required integrating robust authentication, managing state across multiple financial accounts, and presenting analytics in an easily digestible dashboard.</p>
+        </div>
+        
+        <div>
+          <strong style={{color: '#000', fontSize: '1.1rem'}}>My Role:</strong>
+          <p style={{marginTop: '8px'}}>As a Full-Stack Developer, I was responsible for the end-to-end development of the application. This included designing the database architecture in Supabase, implementing secure authentication, and building a responsive, data-driven user interface with Next.js and Tailwind CSS.</p>
+        </div>
+
+        <div>
+          <strong style={{color: '#000', fontSize: '1.1rem'}}>Key Features:</strong>
+          <ul style={{paddingLeft: '24px', marginTop: '12px', display: 'flex', flexDirection: 'column', gap: '8px'}}>
+            <li><strong>Authentication:</strong> Secure user registration and login to start tracking personal finances.</li>
+            <li><strong>Dashboard Overview:</strong> Monitor balance summaries, monthly expenses, and financial health metrics on the main page.</li>
+            <li><strong>Wallet & Accounts:</strong> Manage and add various funding sources including Cash, Bank Accounts, and E-Wallets.</li>
+            <li><strong>Transaction Tracking:</strong> Record every income, expense, and transfer between accounts with appropriate categorization.</li>
+            <li><strong>Budgeting System:</strong> Set monthly spending limits per category to maintain control over expenses.</li>
+            <li><strong>Investment Portfolio:</strong> Track capital growth and market value of investment assets such as Gold, Mutual Funds, and Stocks.</li>
+            <li><strong>Data Analytics:</strong> Utilize interactive charts and diagrams to analyze trends and expense distribution over time.</li>
+          </ul>
+        </div>
+
+        <div style={{background: 'rgba(16, 185, 129, 0.1)', borderLeft: '4px solid #10b981', padding: '20px', borderRadius: '0 8px 8px 0', marginTop: '8px'}}>
+          <strong style={{color: '#8c6023', fontSize: '1.1rem'}}>The Outcome:</strong>
+          <p style={{marginTop: '8px', color: '#333'}}>A high-performance, secure, and user-friendly financial management platform. The application empowers users to take control of their personal finances, offering clear insights into their spending habits and investment growth through a comprehensive and interactive dashboard.</p>
+        </div>
+      </div>
+    )
   },
   {
     id: 4,
