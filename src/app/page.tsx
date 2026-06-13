@@ -419,35 +419,6 @@ export default function Home() {
           </div>
         </motion.div>
 
-        {/* Ambient Light Leak Decoration */}
-        <div 
-          className="hidden lg:block"
-          style={{ position: 'absolute', right: '0', bottom: '0', width: '50%', height: '100%', pointerEvents: 'none', zIndex: -1, overflow: 'visible' }}
-        >
-          {/* Primary Light Blob */}
-          <motion.div 
-            animate={{ 
-              scale: [1, 1.3, 1],
-              opacity: [0.15, 0.25, 0.15],
-              x: [0, -40, 0],
-              y: [0, -30, 0]
-            }}
-            transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
-            style={{ position: 'absolute', right: '-15%', bottom: '-10%', width: '500px', height: '500px', background: 'radial-gradient(circle, rgba(16, 185, 129, 0.8) 0%, rgba(16, 185, 129, 0) 70%)', filter: 'blur(100px)', borderRadius: '50%' }}
-          />
-
-          {/* Secondary Accent Light Blob */}
-          <motion.div 
-            animate={{ 
-              scale: [1.2, 1, 1.2],
-              opacity: [0.1, 0.2, 0.1],
-              x: [0, 50, 0],
-              y: [0, 40, 0]
-            }}
-            transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
-            style={{ position: 'absolute', right: '10%', bottom: '30%', width: '350px', height: '350px', background: 'radial-gradient(circle, rgba(4, 120, 87, 0.6) 0%, rgba(4, 120, 87, 0) 70%)', filter: 'blur(80px)', borderRadius: '50%' }}
-          />
-        </div>
 
       </motion.div>
 
