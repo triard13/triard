@@ -242,7 +242,12 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background-color 0.4s ease;
+  border: 2px solid #10b981;
+  transition: background-color 0.4s ease, border-color 0.4s ease;
+}
+
+[data-theme='dark'] .floating-avatar {
+  border-color: transparent;
 }
 
 .floating-avatar img {
