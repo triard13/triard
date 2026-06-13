@@ -43,7 +43,7 @@ const projectsData: Project[] = [
           </ul>
         </div>
 
-        <div style={{background: 'rgba(219, 165, 92, 0.1)', borderLeft: '4px solid #dba55c', padding: '20px', borderRadius: '0 8px 8px 0', marginTop: '8px'}}>
+        <div style={{background: 'rgba(16, 185, 129, 0.1)', borderLeft: '4px solid #10b981', padding: '20px', borderRadius: '0 8px 8px 0', marginTop: '8px'}}>
           <strong style={{color: '#8c6023', fontSize: '1.1rem'}}>The Outcome:</strong>
           <p style={{marginTop: '8px', color: '#333'}}>The system successfully streamlined the store&apos;s operations, improving efficiency and customer satisfaction. It provided valuable insights into sales trends, enabling better decision-making and strategic planning.</p>
         </div>
@@ -79,7 +79,7 @@ const projectsData: Project[] = [
           </ul>
         </div>
 
-        <div style={{background: 'rgba(219, 165, 92, 0.1)', borderLeft: '4px solid #dba55c', padding: '20px', borderRadius: '0 8px 8px 0', marginTop: '8px'}}>
+        <div style={{background: 'rgba(16, 185, 129, 0.1)', borderLeft: '4px solid #10b981', padding: '20px', borderRadius: '0 8px 8px 0', marginTop: '8px'}}>
           <strong style={{color: '#8c6023', fontSize: '1.1rem'}}>The Outcome:</strong>
           <p style={{marginTop: '8px', color: '#333'}}>Successfully built and launched a professional, modern, and fully functional landing page. The page effectively highlights Prowriting&apos;s value propositions with a seamless user experience, which helps increase user engagement and product conversion rates.</p>
         </div>
@@ -122,9 +122,10 @@ const projectsData: Project[] = [
 
 export default function Home() {
   const [selectedProject, setSelectedProject] = useState<typeof projectsData[0] | null>(null);
+  const [isCreditsOpen, setIsCreditsOpen] = useState(false);
 
   useEffect(() => {
-    if (selectedProject) {
+    if (selectedProject || isCreditsOpen) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'unset';
@@ -132,7 +133,7 @@ export default function Home() {
     return () => {
       document.body.style.overflow = 'unset';
     };
-  }, [selectedProject]);
+  }, [selectedProject, isCreditsOpen]);
 
   return (
     <main>
@@ -196,29 +197,46 @@ export default function Home() {
           {/* Duplicate items for infinite scroll effect */}
           {[...Array(2)].map((_, i) => (
             <React.Fragment key={i}>
-              <div className="tech-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg> Next.js</div>
-              <div className="tech-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg> React</div>
-              <div className="tech-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg> TypeScript</div>
-              <div className="tech-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> Tailwind CSS</div>
-              <div className="tech-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Node.js</div>
-              <div className="tech-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> Laravel</div>
+              <div className="tech-item">✦ Laravel</div>
+              <div className="tech-item">✦ Next.js</div>
+              <div className="tech-item">✦ React.js</div>
+              <div className="tech-item">✦ Figma</div>
+              <div className="tech-item">✦ Tailwind CSS</div>
+              <div className="tech-item">✦ Express.js</div>
+              <div className="tech-item">✦ SQL</div>
+              <div className="tech-item">✦ NoSQL</div>
+              <div className="tech-item">✦ CodeIgniter</div>
             </React.Fragment>
           ))}
         </div>
       </div>
 
       {/* About Me Section */}
-      <div id="about" style={{marginBottom: '100px', display: 'flex', flexDirection: 'column', gap: '24px'}}>
-        <h2 style={{fontSize: '3.5rem', margin: 0, lineHeight: 0.8, fontWeight: 300, letterSpacing: '-0.02em', color: '#000', paddingLeft: '4px'}}>
-          about me<span style={{color: '#dba55c'}}>.</span>
+      <div id="about" style={{marginBottom: '100px', display: 'flex', flexDirection: 'column', gap: '48px'}}>
+        <h2 style={{fontSize: '4.5rem', margin: 0, lineHeight: 0.75, fontWeight: 300, letterSpacing: '-0.02em', color: '#000', paddingLeft: '4px'}}>
+          about me<span style={{color: '#10b981'}}>.</span>
         </h2>
-        <div style={{background: '#f9fafb', padding: '48px', borderRadius: '24px', border: '1px solid #e5e7eb', fontSize: '1.1rem', color: '#4b5563', lineHeight: 1.8}}>
-          <p style={{marginBottom: '24px'}}>
-            Hello! I&apos;m Ardi, a passionate <strong>Freelance Web Developer</strong> dedicated to building high-performance, visually stunning digital experiences. With a strong foundation in modern web technologies, I bridge the gap between design and engineering to create applications that are not only beautiful but also highly functional.
+          
+        <div style={{display: 'flex', flexDirection: 'column', gap: '32px', paddingLeft: 'clamp(20px, 15%, 150px)'}}>
+          <h3 style={{fontSize: 'clamp(3rem, 5vw, 5rem)', fontWeight: 500, lineHeight: 1.1, margin: 0, letterSpacing: '-0.03em'}}>
+            <span style={{color: '#000'}}>A web developer who </span>
+            <span style={{color: '#a3a3a3'}}>blends <br className="hidden md:block" /> logic with creativity.</span>
+          </h3>
+          
+          <p style={{fontSize: '1.25rem', color: '#8c8c8c', lineHeight: 1.6, maxWidth: '800px', margin: 0}}>
+            I&apos;m Ardi, a freelance web developer who believes that meaningful digital experiences start with understanding the user. I help businesses and startups turn complex problems into intuitive, scalable web applications.
           </p>
-          <p>
-            My approach focuses on clean code, seamless user interactions, and robust architecture. Whether it&apos;s a complex web app, a responsive landing page, or a complete backend system, I enjoy solving difficult problems and bringing creative ideas to life. I&apos;m constantly exploring new tools and frameworks to stay at the forefront of modern web development.
-          </p>
+
+          {/* Skill Tags */}
+          <div style={{display: 'flex', flexWrap: 'wrap', gap: '12px', marginTop: '24px', maxWidth: '750px'}}>
+            {['Frontend Development', 'Backend Architecture', 'UI/UX Implementation', 'REST APIs', 'Slicing', 'Landing Pages'].map(tag => (
+              <span key={tag} style={{padding: '12px 24px', borderRadius: '100px', border: '1px solid #e5e5e5', color: '#000', fontSize: '0.95rem', fontWeight: 500, transition: 'all 0.3s ease', cursor: 'default'}}
+                    onMouseEnter={(e) => { e.currentTarget.style.background = '#000'; e.currentTarget.style.color = '#fff'; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#000'; }}>
+                {tag}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
 
@@ -228,7 +246,7 @@ export default function Home() {
         {/* Projects Section */}
         <div id="projects" className="col-span-4" style={{marginTop: '0', display: 'flex', flexDirection: 'column', gap: '48px'}}>
           <h2 style={{fontSize: '4.5rem', margin: 0, lineHeight: 0.75, fontWeight: 300, letterSpacing: '-0.02em', color: '#000', paddingLeft: '4px'}}>
-            projects<span style={{color: '#dba55c'}}>.</span>
+            projects<span style={{color: '#10b981'}}>.</span>
           </h2>
 
           <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '20px'}}>
@@ -239,13 +257,13 @@ export default function Home() {
               key={project.id}
               onClick={() => setSelectedProject(project)}
               style={{position: 'relative', padding: '32px', borderRadius: '16px', background: '#161616', display: 'flex', flexDirection: 'column', overflow: 'hidden', cursor: 'pointer', transition: 'all 0.3s ease', border: '1px solid #2a2a2a'}}
-              onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-6px)'; e.currentTarget.style.borderColor = '#dba55c'; }}
+              onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-6px)'; e.currentTarget.style.borderColor = '#10b981'; }}
               onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.borderColor = '#2a2a2a'; }}
             >
               <div style={{position: 'absolute', bottom: '-35px', right: '-15px', color: 'rgba(255,255,255,0.08)', fontSize: '12rem', fontWeight: 800, lineHeight: 1, pointerEvents: 'none', zIndex: 0}}>{project.id}</div>
               <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '32px', zIndex: 1}}>
                 <h3 style={{fontSize: '1.2rem', fontWeight: 500, color: '#ffffff', maxWidth: '80%'}}>{project.title}</h3>
-                <span style={{fontSize: '1.4rem', color: '#dba55c', fontWeight: 500}}>↗</span>
+                <span style={{fontSize: '1.4rem', color: '#10b981', fontWeight: 500}}>↗</span>
               </div>
               <p style={{fontSize: '0.9rem', color: '#a3a3a3', lineHeight: 1.6, marginBottom: '40px', flexGrow: 1, zIndex: 1, maxWidth: '90%'}}>
                 {project.shortDesc}
@@ -264,17 +282,17 @@ export default function Home() {
         {/* What I Do Section */}
         <div id="services" className="col-span-4" style={{marginTop: '60px', display: 'flex', flexDirection: 'column', gap: '24px'}}>
           <h2 style={{fontSize: '3.5rem', margin: 0, lineHeight: 0.8, fontWeight: 300, letterSpacing: '-0.02em', color: '#000', paddingLeft: '4px'}}>
-            what I do<span style={{color: '#dba55c'}}>.</span>
+            what I do<span style={{color: '#10b981'}}>.</span>
           </h2>
           
           <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '20px'}}>
             {/* Service 1 */}
             <div 
               style={{padding: '32px', borderRadius: '16px', background: '#161616', border: '1px solid #2a2a2a', transition: 'all 0.3s ease', display: 'flex', flexDirection: 'column', gap: '20px', cursor: 'default'}}
-              onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-6px)'; e.currentTarget.style.borderColor = '#dba55c'; e.currentTarget.style.boxShadow = '0 10px 30px -10px rgba(219, 165, 92, 0.15)'; }}
+              onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-6px)'; e.currentTarget.style.borderColor = '#10b981'; e.currentTarget.style.boxShadow = '0 10px 30px -10px rgba(16, 185, 129, 0.15)'; }}
               onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.borderColor = '#2a2a2a'; e.currentTarget.style.boxShadow = 'none'; }}
             >
-              <div style={{width: '56px', height: '56px', borderRadius: '14px', background: 'rgba(219, 165, 92, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#dba55c'}}>
+              <div style={{width: '56px', height: '56px', borderRadius: '14px', background: 'rgba(16, 185, 129, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#10b981'}}>
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
               </div>
               <div>
@@ -288,10 +306,10 @@ export default function Home() {
             {/* Service 2 */}
             <div 
               style={{padding: '32px', borderRadius: '16px', background: '#161616', border: '1px solid #2a2a2a', transition: 'all 0.3s ease', display: 'flex', flexDirection: 'column', gap: '20px', cursor: 'default'}}
-              onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-6px)'; e.currentTarget.style.borderColor = '#dba55c'; e.currentTarget.style.boxShadow = '0 10px 30px -10px rgba(219, 165, 92, 0.15)'; }}
+              onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-6px)'; e.currentTarget.style.borderColor = '#10b981'; e.currentTarget.style.boxShadow = '0 10px 30px -10px rgba(16, 185, 129, 0.15)'; }}
               onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.borderColor = '#2a2a2a'; e.currentTarget.style.boxShadow = 'none'; }}
             >
-              <div style={{width: '56px', height: '56px', borderRadius: '14px', background: 'rgba(219, 165, 92, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#dba55c'}}>
+              <div style={{width: '56px', height: '56px', borderRadius: '14px', background: 'rgba(16, 185, 129, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#10b981'}}>
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
               </div>
               <div>
@@ -305,10 +323,10 @@ export default function Home() {
             {/* Service 3 */}
             <div 
               style={{padding: '32px', borderRadius: '16px', background: '#161616', border: '1px solid #2a2a2a', transition: 'all 0.3s ease', display: 'flex', flexDirection: 'column', gap: '20px', cursor: 'default'}}
-              onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-6px)'; e.currentTarget.style.borderColor = '#dba55c'; e.currentTarget.style.boxShadow = '0 10px 30px -10px rgba(219, 165, 92, 0.15)'; }}
+              onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-6px)'; e.currentTarget.style.borderColor = '#10b981'; e.currentTarget.style.boxShadow = '0 10px 30px -10px rgba(16, 185, 129, 0.15)'; }}
               onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.borderColor = '#2a2a2a'; e.currentTarget.style.boxShadow = 'none'; }}
             >
-              <div style={{width: '56px', height: '56px', borderRadius: '14px', background: 'rgba(219, 165, 92, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#dba55c'}}>
+              <div style={{width: '56px', height: '56px', borderRadius: '14px', background: 'rgba(16, 185, 129, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#10b981'}}>
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
               </div>
               <div>
@@ -322,10 +340,10 @@ export default function Home() {
             {/* Service 4 */}
             <div 
               style={{padding: '32px', borderRadius: '16px', background: '#161616', border: '1px solid #2a2a2a', transition: 'all 0.3s ease', display: 'flex', flexDirection: 'column', gap: '20px', cursor: 'default'}}
-              onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-6px)'; e.currentTarget.style.borderColor = '#dba55c'; e.currentTarget.style.boxShadow = '0 10px 30px -10px rgba(219, 165, 92, 0.15)'; }}
+              onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-6px)'; e.currentTarget.style.borderColor = '#10b981'; e.currentTarget.style.boxShadow = '0 10px 30px -10px rgba(16, 185, 129, 0.15)'; }}
               onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.borderColor = '#2a2a2a'; e.currentTarget.style.boxShadow = 'none'; }}
             >
-              <div style={{width: '56px', height: '56px', borderRadius: '14px', background: 'rgba(219, 165, 92, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#dba55c'}}>
+              <div style={{width: '56px', height: '56px', borderRadius: '14px', background: 'rgba(16, 185, 129, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#10b981'}}>
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
               </div>
               <div>
@@ -343,7 +361,7 @@ export default function Home() {
       {/* Experience Timeline Section */}
       <div style={{marginTop: '100px', display: 'flex', flexDirection: 'column', gap: '24px'}}>
         <h2 style={{fontSize: '3.5rem', margin: 0, lineHeight: 0.8, fontWeight: 300, letterSpacing: '-0.02em', color: '#000', paddingLeft: '4px'}}>
-          experience<span style={{color: '#dba55c'}}>.</span>
+          experience<span style={{color: '#10b981'}}>.</span>
         </h2>
         
         <div className="timeline-container">
@@ -406,6 +424,7 @@ export default function Home() {
           © {new Date().getFullYear()} Tri Ardiansyah. All rights reserved.
         </div>
         <div className="footer-links">
+          <button onClick={() => setIsCreditsOpen(true)} style={{background: 'none', border: 'none', color: 'inherit', cursor: 'pointer', padding: 0, font: 'inherit', textDecoration: 'underline'}}>Design Credits</button>
           <a href="https://github.com/triard13" target="_blank" rel="noopener noreferrer">GitHub</a>
           <a href="https://www.linkedin.com/in/tri-ardiansyah-0b398817a/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           <a href="https://www.instagram.com/tria.ui/" target="_blank" rel="noopener noreferrer">Instagram</a>
@@ -450,6 +469,32 @@ export default function Home() {
         </div>
       )}
 
+      {/* Credits Modal */}
+      {isCreditsOpen && (
+        <div className="modal-backdrop" onClick={() => setIsCreditsOpen(false)}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()} style={{maxWidth: '600px', padding: '40px'}}>
+            <button className="modal-close" onClick={() => setIsCreditsOpen(false)}>✕</button>
+            
+            <h2 style={{fontSize: '2rem', fontWeight: 600, color: '#000', marginBottom: '24px'}}>Design Inspiration</h2>
+            
+            <p style={{fontSize: '1.1rem', color: '#4b5563', lineHeight: 1.6, marginBottom: '24px'}}>
+              This portfolio design was heavily inspired by the amazing work of these talented designers on Dribbble:
+            </p>
+            
+            <div style={{display: 'flex', flexDirection: 'column', gap: '16px'}}>
+              <a href="https://dribbble.com/shots/26617911-Dewangga-Portfolio-Website-Portfolio" target="_blank" rel="noopener noreferrer" style={{display: 'flex', flexDirection: 'column', padding: '20px', background: '#f9fafb', borderRadius: '12px', border: '1px solid #e5e7eb', textDecoration: 'none', transition: 'all 0.2s ease'}} onMouseEnter={(e) => e.currentTarget.style.borderColor = '#10b981'} onMouseLeave={(e) => e.currentTarget.style.borderColor = '#e5e7eb'}>
+                <strong style={{color: '#000', fontSize: '1.1rem'}}>Dewangga - Portfolio Website</strong>
+                <span style={{color: '#6b7280', fontSize: '0.9rem', marginTop: '4px'}}>by Purwa Adi Wicaksana</span>
+              </a>
+              
+              <a href="https://dribbble.com/shots/22761465-Personal-Portofolio-Website" target="_blank" rel="noopener noreferrer" style={{display: 'flex', flexDirection: 'column', padding: '20px', background: '#f9fafb', borderRadius: '12px', border: '1px solid #e5e7eb', textDecoration: 'none', transition: 'all 0.2s ease'}} onMouseEnter={(e) => e.currentTarget.style.borderColor = '#10b981'} onMouseLeave={(e) => e.currentTarget.style.borderColor = '#e5e7eb'}>
+                <strong style={{color: '#000', fontSize: '1.1rem'}}>Personal Portfolio Website</strong>
+                <span style={{color: '#6b7280', fontSize: '0.9rem', marginTop: '4px'}}>by Muhammad Khozinul Asror</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
     </main>
   );
 }
