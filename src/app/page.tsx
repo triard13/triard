@@ -113,11 +113,41 @@ const projectsData: Project[] = [
   },
   {
     id: 6,
-    title: "Sistem Informasi Surat",
-    shortDesc: "Digital mail management information system for Polinema to securely handle incoming and outgoing official correspondence.",
-    tags: ["PHP", "Bootstrap", "MySQL"],
-    fullDesc: "Detailed case study for Sistem Informasi Surat. Explaining the secure handling of official correspondence, role-based access control, and digital archiving system.",
-    link: "#"
+    title: "Bengkel Hidrolik Sulaiman Jaya",
+    image: "/hidrolik.png",
+    shortDesc: "A modern landing page and company profile for Bengkel Hidrolik Sulaiman Jaya, featuring services, portfolio, client testimonials, and direct WhatsApp integration.",
+    tags: ["Next.js", "Tailwind CSS", "Framer Motion"],
+    link: "https://bengkel-hidrolik-sulaiman.vercel.app/",
+    fullDesc: (
+      <div style={{display: 'flex', flexDirection: 'column', gap: '24px'}}>
+        <div>
+          <strong style={{color: '#000', fontSize: '1.1rem'}}>The Challenge:</strong>
+          <p style={{marginTop: '8px'}}>Building a professional digital presence for a mechanical/industrial service business, which is typically conventional. The challenge was to design a sleek and modern industrial-themed user interface (UI), ensure service information is easy to understand, and make the booking/consultation process seamless for potential clients, without compromising page loading speed.</p>
+        </div>
+        
+        <div>
+          <strong style={{color: '#000', fontSize: '1.1rem'}}>My Role:</strong>
+          <p style={{marginTop: '8px'}}>As Front-End Developer / Web Developer, I was fully responsible for translating business requirements into a functional, responsive web interface across various devices, and integrating dynamic animations for a better user experience (UX).</p>
+        </div>
+
+        <div>
+          <strong style={{color: '#000', fontSize: '1.1rem'}}>Key Features:</strong>
+          <ul style={{paddingLeft: '24px', marginTop: '12px', display: 'flex', flexDirection: 'column', gap: '8px'}}>
+            <li><strong>Responsive & Mobile-First Design:</strong> Seamlessly adapts to various screen sizes.</li>
+            <li><strong>Theme Toggle:</strong> Dark/Light Mode with a floating navbar.</li>
+            <li><strong>Dynamic Animations:</strong> Smooth scrolling and animations using Framer Motion.</li>
+            <li><strong>Interactive Gallery:</strong> Portfolio gallery showcasing past works.</li>
+            <li><strong>Client Trust:</strong> FAQ Accordion & Client Testimonials.</li>
+            <li><strong>Direct Integration:</strong> WhatsApp Call-to-Action for instant consultation.</li>
+          </ul>
+        </div>
+
+        <div style={{background: 'rgba(16, 185, 129, 0.1)', borderLeft: '4px solid #10b981', padding: '20px', borderRadius: '0 8px 8px 0', marginTop: '8px'}}>
+          <strong style={{color: '#8c6023', fontSize: '1.1rem'}}>The Outcome:</strong>
+          <p style={{marginTop: '8px', color: '#333'}}>Successfully launched a high-performance, modern, and professional landing page. The website enhanced the online credibility of Bengkel Hidrolik Sulaiman Jaya, made it easier for clients to find service information, and increased potential customer conversions through a direct and simple WhatsApp communication flow.</p>
+        </div>
+      </div>
+    )
   }
 ];
 
