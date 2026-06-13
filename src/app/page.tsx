@@ -164,11 +164,39 @@ const projectsData: Project[] = [
   },
   {
     id: 5,
-    title: "Inventory Barang",
-    shortDesc: "Efficient goods inventory and tracking system built to streamline warehouse operations and monitor stock levels automatically.",
-    tags: ["Laravel", "Vue.js", "MySQL"],
-    fullDesc: "Detailed case study for Inventory Barang. This modal will display the warehouse operations dashboard, stock level monitoring alerts, and tracking workflows.",
-    link: "#"
+    title: "BKK SIGMA SMKN 1 BOJONEGORO",
+    image: "/bkk-smk.png",
+    shortDesc: "A specialized job portal and career center platform designed to bridge the gap between students, alumni, and the industrial sector by facilitating job placements.",
+    tags: ["Laravel", "MySQL", "Alpine.js", "Tailwind CSS"],
+    link: "#",
+    fullDesc: (
+      <div style={{display: 'flex', flexDirection: 'column', gap: '24px'}}>
+        <div>
+          <strong style={{color: '#000', fontSize: '1.1rem'}}>The Challenge:</strong>
+          <p style={{marginTop: '8px'}}>Bursa Kerja Khusus (BKK) SMKN 1 Bojonegoro needed a dedicated platform to facilitate students and graduates in accessing job opportunities aligned with their skills. The challenge was to create a digital bridge between the school and the industrial sector, establishing a streamlined system to manage job vacancies, track alumni placements, and handle company partnerships efficiently.</p>
+        </div>
+        
+        <div>
+          <strong style={{color: '#000', fontSize: '1.1rem'}}>My Role:</strong>
+          <p style={{marginTop: '8px'}}>As a Full-Stack Developer, I designed and developed the platform from the ground up using Laravel and MySQL for robust data management, while leveraging Tailwind CSS and Alpine.js to create a dynamic, responsive user interface.</p>
+        </div>
+
+        <div>
+          <strong style={{color: '#000', fontSize: '1.1rem'}}>Key Features:</strong>
+          <ul style={{paddingLeft: '24px', marginTop: '12px', display: 'flex', flexDirection: 'column', gap: '8px'}}>
+            <li><strong>Job Vacancy Management:</strong> Track and manage job vacancies with automated notifications for new listings to keep students and alumni updated.</li>
+            <li><strong>Alumni Tracking and Placement:</strong> Maintain a comprehensive database of alumni employment status and track career progress to strengthen industry relationships.</li>
+            <li><strong>Student and Company Management:</strong> Manage student profiles with their skills and preferences, alongside company profiles for easier job matching.</li>
+            <li><strong>Reporting and Analytics:</strong> Generate detailed reports on employment rates, popular job sectors, and company engagement to gain insights into job market trends.</li>
+          </ul>
+        </div>
+
+        <div style={{background: 'rgba(16, 185, 129, 0.1)', borderLeft: '4px solid #10b981', padding: '20px', borderRadius: '0 8px 8px 0', marginTop: '8px'}}>
+          <strong style={{color: '#8c6023', fontSize: '1.1rem'}}>The Outcome:</strong>
+          <p style={{marginTop: '8px', color: '#333'}}>The platform has effectively facilitated employment opportunities for students and alumni, contributing to the school&apos;s reputation as a reliable source of skilled workers. It strengthened relationships with industry partners and provided valuable insights into employment trends, aiding in strategic planning for curriculum adjustments.</p>
+        </div>
+      </div>
+    )
   },
   {
     id: 6,
