@@ -128,11 +128,39 @@ const projectsData: Project[] = [
   },
   {
     id: 4,
-    title: "Mallydia POS",
-    shortDesc: "Comprehensive POS system for retail management, featuring real-time inventory tracking, sales analytics, and dynamic reporting.",
-    tags: ["React", "Node.js", "Tailwind"],
-    fullDesc: "Detailed case study for Mallydia POS. Screenshots of the point-of-sale interface, inventory tracking dashboard, and dynamic reporting modules can be placed here.",
-    link: "#"
+    title: "Mellydia POS",
+    image: "/mellydia.png",
+    shortDesc: "A comprehensive point-of-sale and inventory management system designed for retail operations, enabling efficient sales tracking, purchase management, and automated stock level alerts.",
+    tags: ["CodeIgniter 3", "MySQL", "Bootstrap"],
+    link: "#",
+    fullDesc: (
+      <div style={{display: 'flex', flexDirection: 'column', gap: '24px'}}>
+        <div>
+          <strong style={{color: '#000', fontSize: '1.1rem'}}>The Challenge:</strong>
+          <p style={{marginTop: '8px'}}>The client, CV Tr. Makmur Sentosa, required a robust dashboard to seamlessly conduct daily retail operations. The challenge was to integrate comprehensive inventory control, transaction processing, and dynamic financial reporting into a single intuitive system, while also automating stock level notifications to prevent shortages.</p>
+        </div>
+        
+        <div>
+          <strong style={{color: '#000', fontSize: '1.1rem'}}>My Role:</strong>
+          <p style={{marginTop: '8px'}}>As a Full-Stack Developer, I built the entire system architecture from the ground up using CodeIgniter 3, structured the MySQL database for efficient data handling, and designed a responsive interface utilizing Bootstrap.</p>
+        </div>
+
+        <div>
+          <strong style={{color: '#000', fontSize: '1.1rem'}}>Key Features:</strong>
+          <ul style={{paddingLeft: '24px', marginTop: '12px', display: 'flex', flexDirection: 'column', gap: '8px'}}>
+            <li><strong>Master Item Management:</strong> Track product details, manage categories, and handle supplier information and purchase orders.</li>
+            <li><strong>Transaction Management:</strong> Process sales efficiently with an intuitive POS interface, apply discounts, and manage customer data for personalized service.</li>
+            <li><strong>Reporting System:</strong> Generate detailed sales performance, inventory turnover, and financial profitability reports.</li>
+            <li><strong>Automated Alerts:</strong> Send notifications to sellers when products hit minimum stock levels to streamline restocking.</li>
+          </ul>
+        </div>
+
+        <div style={{background: 'rgba(16, 185, 129, 0.1)', borderLeft: '4px solid #10b981', padding: '20px', borderRadius: '0 8px 8px 0', marginTop: '8px'}}>
+          <strong style={{color: '#8c6023', fontSize: '1.1rem'}}>The Outcome:</strong>
+          <p style={{marginTop: '8px', color: '#333'}}>The Mellydia POS system significantly improved retail operations by automating inventory management and streamlining sales processes. It provided the client with valuable insights through comprehensive reporting and enhanced overall customer satisfaction by reducing checkout times.</p>
+        </div>
+      </div>
+    )
   },
   {
     id: 5,
