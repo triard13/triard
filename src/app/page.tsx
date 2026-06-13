@@ -150,7 +150,7 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section id="about" className="hero-section">
+      <section className="hero-section">
         <div className="hero-pill">
           Hello 👋, Let&apos;s Build Something Extraordinary
         </div>
@@ -189,6 +189,38 @@ export default function Home() {
           </a>
         </div>
       </section>
+
+      {/* Tech Stack Marquee */}
+      <div className="tech-marquee-wrapper">
+        <div className="tech-marquee">
+          {/* Duplicate items for infinite scroll effect */}
+          {[...Array(2)].map((_, i) => (
+            <React.Fragment key={i}>
+              <div className="tech-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg> Next.js</div>
+              <div className="tech-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg> React</div>
+              <div className="tech-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg> TypeScript</div>
+              <div className="tech-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> Tailwind CSS</div>
+              <div className="tech-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Node.js</div>
+              <div className="tech-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> Laravel</div>
+            </React.Fragment>
+          ))}
+        </div>
+      </div>
+
+      {/* About Me Section */}
+      <div id="about" style={{marginBottom: '100px', display: 'flex', flexDirection: 'column', gap: '24px'}}>
+        <h2 style={{fontSize: '3.5rem', margin: 0, lineHeight: 0.8, fontWeight: 300, letterSpacing: '-0.02em', color: '#000', paddingLeft: '4px'}}>
+          about me<span style={{color: '#dba55c'}}>.</span>
+        </h2>
+        <div style={{background: '#f9fafb', padding: '48px', borderRadius: '24px', border: '1px solid #e5e7eb', fontSize: '1.1rem', color: '#4b5563', lineHeight: 1.8}}>
+          <p style={{marginBottom: '24px'}}>
+            Hello! I&apos;m Ardi, a passionate <strong>Freelance Web Developer</strong> dedicated to building high-performance, visually stunning digital experiences. With a strong foundation in modern web technologies, I bridge the gap between design and engineering to create applications that are not only beautiful but also highly functional.
+          </p>
+          <p>
+            My approach focuses on clean code, seamless user interactions, and robust architecture. Whether it&apos;s a complex web app, a responsive landing page, or a complete backend system, I enjoy solving difficult problems and bringing creative ideas to life. I&apos;m constantly exploring new tools and frameworks to stay at the forefront of modern web development.
+          </p>
+        </div>
+      </div>
 
       {/* Rest of the Portfolio (Bento Grid) */}
       <div className="bento-grid">
@@ -307,6 +339,78 @@ export default function Home() {
         </div>
 
       </div>
+
+      {/* Experience Timeline Section */}
+      <div style={{marginTop: '100px', display: 'flex', flexDirection: 'column', gap: '24px'}}>
+        <h2 style={{fontSize: '3.5rem', margin: 0, lineHeight: 0.8, fontWeight: 300, letterSpacing: '-0.02em', color: '#000', paddingLeft: '4px'}}>
+          experience<span style={{color: '#dba55c'}}>.</span>
+        </h2>
+        
+        <div className="timeline-container">
+          {/* Timeline Item 1 */}
+          <div className="timeline-item">
+            <div className="timeline-dot"></div>
+            <div className="timeline-content">
+              <h3 className="timeline-title">Freelance Web Developer</h3>
+              <div className="timeline-meta">Self-Employed · Remote | Aug 2021 - Present</div>
+              <p className="timeline-desc">
+                Built and developed custom web applications for various clients. Experienced in using Laravel, PHP, and modern front-end technologies to deliver scalable and functional digital solutions.
+              </p>
+            </div>
+          </div>
+
+          {/* Timeline Item 2 */}
+          <div className="timeline-item">
+            <div className="timeline-dot"></div>
+            <div className="timeline-content">
+              <h3 className="timeline-title">Web Developer Intern</h3>
+              <div className="timeline-meta">PT. Ekosjaya Abadi Lestari · Sidoarjo | Mar 2021 - Apr 2021</div>
+              <p className="timeline-desc">
+                Developed a warehouse inventory information system using the CodeIgniter 3 framework to optimize tracking and stock management.
+              </p>
+            </div>
+          </div>
+          
+          {/* Timeline Item 3 */}
+          <div className="timeline-item">
+            <div className="timeline-dot"></div>
+            <div className="timeline-content">
+              <h3 className="timeline-title">Web Developer Intern</h3>
+              <div className="timeline-meta">CV. TR Makmur Sentosa · Sidoarjo | Jan 2021 - Feb 2021</div>
+              <p className="timeline-desc">
+                Actively participated in web development projects during the internship. Assisted the engineering team in building, testing, and maintaining website features.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Contact Section */}
+      <div className="contact-section">
+        <div className="contact-content">
+          <h2 style={{fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 300, letterSpacing: '-0.02em', marginBottom: '16px', lineHeight: 1.1}}>
+            Have an idea?<br/>Let&apos;s build it together.
+          </h2>
+          <p style={{fontSize: '1.1rem', color: '#a3a3a3', maxWidth: '500px', margin: '0 auto'}}>
+            I&apos;m currently available for new projects and open to exciting freelance opportunities. Feel free to reach out if you want to collaborate!
+          </p>
+          <a href="mailto:triard78@gmail.com" className="btn-gold">
+            Start a Project ↗
+          </a>
+        </div>
+      </div>
+
+      {/* Footer */}
+      <footer className="footer">
+        <div>
+          © {new Date().getFullYear()} Tri Ardiansyah. All rights reserved.
+        </div>
+        <div className="footer-links">
+          <a href="https://github.com/triard13" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://www.linkedin.com/in/tri-ardiansyah-0b398817a/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://www.instagram.com/tria.ui/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        </div>
+      </footer>
 
       {/* Modal Overlay */}
       {selectedProject && (
