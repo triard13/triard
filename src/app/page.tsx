@@ -52,11 +52,39 @@ const projectsData: Project[] = [
   },
   {
     id: 2,
-    title: "Aircraft Communications Addressing",
-    shortDesc: "In this project, I developed a web-based communication gateway between ground stations and pilots, enabling efficient data exchange and real-time communication and symbiosis.",
-    tags: ["React", "Node.js", "MongoDB", "Express"],
-    fullDesc: "Detailed case study for Aircraft Communications Addressing. Here we can add screenshots of the ground station interface and technical details about the real-time data exchange implementation.",
-    link: "#"
+    title: "Prowriting",
+    image: "/prowriting.png",
+    shortDesc: "An interactive and responsive landing page for Prowriting, an AI-powered content design and UX writing tool, featuring dynamic animations and a modern glassmorphism aesthetic.",
+    tags: ["HTML5", "Tailwind CSS", "Vanilla JS"],
+    link: "https://slicing-project-1.vercel.app/",
+    fullDesc: (
+      <div style={{display: 'flex', flexDirection: 'column', gap: '24px'}}>
+        <div>
+          <strong style={{color: '#000', fontSize: '1.1rem'}}>The Challenge:</strong>
+          <p style={{marginTop: '8px'}}>The main challenge of this project was to build a visually appealing, highly responsive, and interactive landing page that effectively communicates the value of an AI UX writing product. This involved translating complex UI designs (like dynamic animations and carousel features) into clean, structured code while maintaining fast loading speeds across various screen sizes and browsers.</p>
+        </div>
+        
+        <div>
+          <strong style={{color: '#000', fontSize: '1.1rem'}}>My Role:</strong>
+          <p style={{marginTop: '8px'}}>As Frontend Developer / UI Developer, I was fully responsible for translating UI/UX designs into a functional and interactive web page using HTML, Tailwind CSS, and JavaScript.</p>
+        </div>
+
+        <div>
+          <strong style={{color: '#000', fontSize: '1.1rem'}}>Key Features:</strong>
+          <ul style={{paddingLeft: '24px', marginTop: '12px', display: 'flex', flexDirection: 'column', gap: '8px'}}>
+            <li><strong>Responsive & Mobile-First Design:</strong> Seamlessly adapts to various devices (Mobile, Tablet, Desktop).</li>
+            <li><strong>Interactive UI/UX:</strong> Dynamic interface components such as hover effects, smooth transitions, glow animations, and click interactions (e.g., brand style selector).</li>
+            <li><strong>Modern Aesthetic:</strong> Features a modern glassmorphism design style using Tailwind CSS to deliver a premium visual experience.</li>
+            <li><strong>Lightweight & Fast:</strong> Optimized without heavy JavaScript frameworks, ensuring lightning-fast page loads.</li>
+          </ul>
+        </div>
+
+        <div style={{background: 'rgba(219, 165, 92, 0.1)', borderLeft: '4px solid #dba55c', padding: '20px', borderRadius: '0 8px 8px 0', marginTop: '8px'}}>
+          <strong style={{color: '#8c6023', fontSize: '1.1rem'}}>The Outcome:</strong>
+          <p style={{marginTop: '8px', color: '#333'}}>Successfully built and launched a professional, modern, and fully functional landing page. The page effectively highlights Prowriting&apos;s value propositions with a seamless user experience, which helps increase user engagement and product conversion rates.</p>
+        </div>
+      </div>
+    )
   },
   {
     id: 3,
@@ -112,9 +140,9 @@ export default function Home() {
       <nav className="navbar">
         <div className="nav-logo">A</div>
         <div className="nav-links">
-          <a href="#">About Me</a>
-          <a href="#">Services</a>
-          <a href="#">Projects</a>
+          <a href="#about">About Me</a>
+          <a href="#projects">Projects</a>
+          <a href="#services">Services</a>
         </div>
         <div className="nav-cta">
           <a href="mailto:triard78@gmail.com">Let&apos;s Connect ↗</a>
@@ -122,7 +150,7 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section className="hero-section">
+      <section id="about" className="hero-section">
         <div className="hero-pill">
           Hello 👋, Let&apos;s Build Something Extraordinary
         </div>
@@ -166,7 +194,7 @@ export default function Home() {
       <div className="bento-grid">
         
         {/* Projects Section */}
-        <div className="col-span-4" style={{marginTop: '0', display: 'flex', flexDirection: 'column', gap: '48px'}}>
+        <div id="projects" className="col-span-4" style={{marginTop: '0', display: 'flex', flexDirection: 'column', gap: '48px'}}>
           <h2 style={{fontSize: '4.5rem', margin: 0, lineHeight: 0.75, fontWeight: 300, letterSpacing: '-0.02em', color: '#000', paddingLeft: '4px'}}>
             projects<span style={{color: '#dba55c'}}>.</span>
           </h2>
@@ -202,42 +230,78 @@ export default function Home() {
         </div>
 
         {/* What I Do Section */}
-        <div className="col-span-4" style={{marginTop: '60px', display: 'flex', flexDirection: 'column', gap: '24px'}}>
+        <div id="services" className="col-span-4" style={{marginTop: '60px', display: 'flex', flexDirection: 'column', gap: '24px'}}>
           <h2 style={{fontSize: '3.5rem', margin: 0, lineHeight: 0.8, fontWeight: 300, letterSpacing: '-0.02em', color: '#000', paddingLeft: '4px'}}>
             what I do<span style={{color: '#dba55c'}}>.</span>
           </h2>
           
           <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '20px'}}>
             {/* Service 1 */}
-            <div style={{padding: '32px', borderRadius: '8px', background: '#e8e8e8'}}>
-              <h3 style={{fontSize: '1.25rem', fontWeight: 600, color: '#000', marginBottom: '16px'}}>Front-End Development</h3>
-              <p style={{fontSize: '0.9rem', color: '#333', lineHeight: 1.6}}>
-                Develop responsive and engaging user interfaces from design to implementation, ensuring exceptional user experience through effective UI/UX design implementation.
-              </p>
+            <div 
+              style={{padding: '32px', borderRadius: '16px', background: '#161616', border: '1px solid #2a2a2a', transition: 'all 0.3s ease', display: 'flex', flexDirection: 'column', gap: '20px', cursor: 'default'}}
+              onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-6px)'; e.currentTarget.style.borderColor = '#dba55c'; e.currentTarget.style.boxShadow = '0 10px 30px -10px rgba(219, 165, 92, 0.15)'; }}
+              onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.borderColor = '#2a2a2a'; e.currentTarget.style.boxShadow = 'none'; }}
+            >
+              <div style={{width: '56px', height: '56px', borderRadius: '14px', background: 'rgba(219, 165, 92, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#dba55c'}}>
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+              </div>
+              <div>
+                <h3 style={{fontSize: '1.25rem', fontWeight: 600, color: '#ffffff', marginBottom: '12px'}}>Front-End Development</h3>
+                <p style={{fontSize: '0.9rem', color: '#a3a3a3', lineHeight: 1.6}}>
+                  Develop responsive and engaging user interfaces from design to implementation, ensuring exceptional user experience through effective UI/UX design.
+                </p>
+              </div>
             </div>
 
             {/* Service 2 */}
-            <div style={{padding: '32px', borderRadius: '8px', background: '#e8e8e8'}}>
-              <h3 style={{fontSize: '1.25rem', fontWeight: 600, color: '#000', marginBottom: '16px'}}>Project Management</h3>
-              <p style={{fontSize: '0.9rem', color: '#333', lineHeight: 1.6}}>
-                Plan, organize, and manage web development projects from start to finish. Collaborate with clients and teams to ensure projects are completed on schedule.
-              </p>
+            <div 
+              style={{padding: '32px', borderRadius: '16px', background: '#161616', border: '1px solid #2a2a2a', transition: 'all 0.3s ease', display: 'flex', flexDirection: 'column', gap: '20px', cursor: 'default'}}
+              onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-6px)'; e.currentTarget.style.borderColor = '#dba55c'; e.currentTarget.style.boxShadow = '0 10px 30px -10px rgba(219, 165, 92, 0.15)'; }}
+              onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.borderColor = '#2a2a2a'; e.currentTarget.style.boxShadow = 'none'; }}
+            >
+              <div style={{width: '56px', height: '56px', borderRadius: '14px', background: 'rgba(219, 165, 92, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#dba55c'}}>
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              </div>
+              <div>
+                <h3 style={{fontSize: '1.25rem', fontWeight: 600, color: '#ffffff', marginBottom: '12px'}}>Project Management</h3>
+                <p style={{fontSize: '0.9rem', color: '#a3a3a3', lineHeight: 1.6}}>
+                  Plan, organize, and manage web development projects from start to finish. Collaborate with clients and teams to ensure projects are completed on schedule.
+                </p>
+              </div>
             </div>
 
             {/* Service 3 */}
-            <div style={{padding: '32px', borderRadius: '8px', background: '#e8e8e8'}}>
-              <h3 style={{fontSize: '1.25rem', fontWeight: 600, color: '#000', marginBottom: '16px'}}>Back-End Development</h3>
-              <p style={{fontSize: '0.9rem', color: '#333', lineHeight: 1.6}}>
-                Create and manage servers, databases, and application logic, and provide APIs and integration with third-party services.
-              </p>
+            <div 
+              style={{padding: '32px', borderRadius: '16px', background: '#161616', border: '1px solid #2a2a2a', transition: 'all 0.3s ease', display: 'flex', flexDirection: 'column', gap: '20px', cursor: 'default'}}
+              onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-6px)'; e.currentTarget.style.borderColor = '#dba55c'; e.currentTarget.style.boxShadow = '0 10px 30px -10px rgba(219, 165, 92, 0.15)'; }}
+              onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.borderColor = '#2a2a2a'; e.currentTarget.style.boxShadow = 'none'; }}
+            >
+              <div style={{width: '56px', height: '56px', borderRadius: '14px', background: 'rgba(219, 165, 92, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#dba55c'}}>
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+              </div>
+              <div>
+                <h3 style={{fontSize: '1.25rem', fontWeight: 600, color: '#ffffff', marginBottom: '12px'}}>Back-End Development</h3>
+                <p style={{fontSize: '0.9rem', color: '#a3a3a3', lineHeight: 1.6}}>
+                  Create and manage servers, databases, and application logic, and provide APIs and integration with third-party services.
+                </p>
+              </div>
             </div>
 
             {/* Service 4 */}
-            <div style={{padding: '32px', borderRadius: '8px', background: '#e8e8e8'}}>
-              <h3 style={{fontSize: '1.25rem', fontWeight: 600, color: '#000', marginBottom: '16px'}}>Maintenance and Support</h3>
-              <p style={{fontSize: '0.9rem', color: '#333', lineHeight: 1.6}}>
-                Monitor website performance and perform regular maintenance to ensure security and speed. Provide technical support according to client needs.
-              </p>
+            <div 
+              style={{padding: '32px', borderRadius: '16px', background: '#161616', border: '1px solid #2a2a2a', transition: 'all 0.3s ease', display: 'flex', flexDirection: 'column', gap: '20px', cursor: 'default'}}
+              onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-6px)'; e.currentTarget.style.borderColor = '#dba55c'; e.currentTarget.style.boxShadow = '0 10px 30px -10px rgba(219, 165, 92, 0.15)'; }}
+              onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.borderColor = '#2a2a2a'; e.currentTarget.style.boxShadow = 'none'; }}
+            >
+              <div style={{width: '56px', height: '56px', borderRadius: '14px', background: 'rgba(219, 165, 92, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#dba55c'}}>
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+              </div>
+              <div>
+                <h3 style={{fontSize: '1.25rem', fontWeight: 600, color: '#ffffff', marginBottom: '12px'}}>Maintenance & Support</h3>
+                <p style={{fontSize: '0.9rem', color: '#a3a3a3', lineHeight: 1.6}}>
+                  Monitor website performance and perform regular maintenance to ensure security and speed. Provide technical support according to client needs.
+                </p>
+              </div>
             </div>
           </div>
         </div>
