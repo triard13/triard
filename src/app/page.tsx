@@ -517,7 +517,7 @@ export default function Home() {
               <div style={{width: '56px', height: '56px', borderRadius: '14px', background: 'rgba(16, 185, 129, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#10b981', position: 'relative', zIndex: 2}}>
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
               </div>
-              <div style={{position: 'relative', zIndex: 2, maxWidth: '60%'}}>
+              <div className="w-full lg:w-[60%]" style={{position: 'relative', zIndex: 2}}>
                 <h3 style={{fontSize: '1.25rem', fontWeight: 600, color: '#ffffff', marginBottom: '12px'}}>Front-End Development</h3>
                 <p style={{fontSize: '0.9rem', color: '#a3a3a3', lineHeight: 1.6}}>
                   Develop responsive and engaging user interfaces from design to implementation, ensuring exceptional user experience through effective UI/UX design.
@@ -529,7 +529,7 @@ export default function Home() {
                 initial={{ opacity: 0.5, y: 10 }}
                 whileHover={{ opacity: 1, y: 0, scale: 1.05 }}
                 transition={{ duration: 0.4 }}
-                className="hidden md:flex flex-col"
+                className="hidden lg:flex flex-col"
                 style={{ position: 'absolute', top: '32px', right: '32px', width: '220px', height: '140px', borderRadius: '8px', background: 'linear-gradient(145deg, #1e1e1e, #111111)', border: '1px solid #333', overflow: 'hidden', zIndex: 1, boxShadow: '0 10px 30px rgba(0,0,0,0.5)' }}
               >
                 <div style={{ display: 'flex', gap: '6px', padding: '10px 12px', borderBottom: '1px solid #333', background: '#1a1a1a' }}>
@@ -568,7 +568,7 @@ export default function Home() {
                 </p>
               </div>
               
-              <div style={{marginTop: 'auto', paddingTop: '32px'}}>
+              <div className="hidden lg:block" style={{marginTop: 'auto', paddingTop: '32px'}}>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                   {[60, 85, 50].map((width, i) => (
                     <motion.div 
@@ -610,7 +610,8 @@ export default function Home() {
             >
               {/* Green Glass Circle */}
               <div 
-                style={{ position: 'absolute', top: '-30px', right: '-30px', width: '120px', height: '120px', background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(16, 185, 129, 0.05) 100%)', backdropFilter: 'blur(10px)', borderRadius: '50%', border: '1px solid rgba(16, 185, 129, 0.3)', zIndex: 0 }}
+                className="hidden lg:block"
+                style={{ position: 'absolute', top: '-30px', right: '-30px', width: '120px', height: '120px', background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(16, 185, 129, 0.02) 100%)', backdropFilter: 'blur(6px)', borderRadius: '50%', border: '1px solid rgba(16, 185, 129, 0.1)', zIndex: 0 }}
               />
               <motion.div 
                 animate={{ y: [0, -4, 0], boxShadow: ['0 0 0 rgba(16, 185, 129, 0)', '0 4px 10px rgba(16, 185, 129, 0.2)', '0 0 0 rgba(16, 185, 129, 0)'] }}
@@ -637,7 +638,8 @@ export default function Home() {
             >
               {/* Green Glass Circle */}
               <div 
-                style={{ position: 'absolute', top: '-30px', right: '-30px', width: '120px', height: '120px', background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(16, 185, 129, 0.05) 100%)', backdropFilter: 'blur(10px)', borderRadius: '50%', border: '1px solid rgba(16, 185, 129, 0.3)', zIndex: 0 }}
+                className="hidden lg:block"
+                style={{ position: 'absolute', top: '-30px', right: '-30px', width: '120px', height: '120px', background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(16, 185, 129, 0.02) 100%)', backdropFilter: 'blur(6px)', borderRadius: '50%', border: '1px solid rgba(16, 185, 129, 0.1)', zIndex: 0 }}
               />
               <motion.div 
                 animate={{ y: [0, -4, 0], boxShadow: ['0 0 0 rgba(16, 185, 129, 0)', '0 4px 10px rgba(16, 185, 129, 0.2)', '0 0 0 rgba(16, 185, 129, 0)'] }}
