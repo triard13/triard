@@ -266,10 +266,10 @@ export default function Home() {
     if (selectedProject || isCreditsOpen) {
       document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = '';
     }
     return () => {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = '';
     };
   }, [selectedProject, isCreditsOpen]);
 
@@ -290,7 +290,7 @@ export default function Home() {
   };
 
   return (
-    <main>
+    <main style={{ overflowX: 'clip' }}>
       {/* Floating Navbar */}
       <nav className="navbar">
         <div className="nav-logo">A</div>
@@ -329,8 +329,19 @@ export default function Home() {
           A <strong>Freelance Web Developer</strong> crafting high-performance websites and seamless digital experiences.
         </motion.div>
 
-        <motion.a variants={fadeInUp} href="mailto:triard78@gmail.com" className="btn-black">
-          Let&apos;s Connect
+        <motion.a 
+          variants={fadeInUp} 
+          href="mailto:triard78@gmail.com" 
+          className="btn-black"
+          style={{ position: 'relative', overflow: 'hidden' }}
+        >
+          <span style={{ position: 'relative', zIndex: 1 }}>Let&apos;s Connect</span>
+          {/* Shimmer Effect */}
+          <motion.div 
+            animate={{ left: ['-150%', '250%'] }}
+            transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut', repeatDelay: 1 }}
+            style={{ position: 'absolute', top: 0, width: '50%', height: '100%', background: 'linear-gradient(90deg, transparent, rgba(16,185,129,0.6), transparent)', transform: 'skewX(-20deg)', zIndex: 0, pointerEvents: 'none' }}
+          />
         </motion.a>
 
         {/* Floating Avatar (Bottom Left) */}
@@ -382,7 +393,7 @@ export default function Home() {
       <motion.div 
         id="about" 
         initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={staggerContainer}
-        style={{marginBottom: '100px', display: 'flex', flexDirection: 'column', gap: '48px'}}
+        style={{marginBottom: '100px', display: 'flex', flexDirection: 'column', gap: '48px', position: 'relative'}}
       >
         <motion.h2 variants={fadeInUp} style={{fontSize: '4.5rem', margin: 0, lineHeight: 0.75, fontWeight: 300, letterSpacing: '-0.02em', color: 'var(--text-primary)', paddingLeft: '4px'}}>
           about me<span style={{color: 'var(--accent-text)'}}>.</span>
@@ -407,6 +418,37 @@ export default function Home() {
             ))}
           </div>
         </motion.div>
+
+        {/* Ambient Light Leak Decoration */}
+        <div 
+          className="hidden lg:block"
+          style={{ position: 'absolute', right: '0', bottom: '0', width: '50%', height: '100%', pointerEvents: 'none', zIndex: -1, overflow: 'visible' }}
+        >
+          {/* Primary Light Blob */}
+          <motion.div 
+            animate={{ 
+              scale: [1, 1.3, 1],
+              opacity: [0.15, 0.25, 0.15],
+              x: [0, -40, 0],
+              y: [0, -30, 0]
+            }}
+            transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+            style={{ position: 'absolute', right: '-15%', bottom: '-10%', width: '500px', height: '500px', background: 'radial-gradient(circle, rgba(16, 185, 129, 0.8) 0%, rgba(16, 185, 129, 0) 70%)', filter: 'blur(100px)', borderRadius: '50%' }}
+          />
+
+          {/* Secondary Accent Light Blob */}
+          <motion.div 
+            animate={{ 
+              scale: [1.2, 1, 1.2],
+              opacity: [0.1, 0.2, 0.1],
+              x: [0, 50, 0],
+              y: [0, 40, 0]
+            }}
+            transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
+            style={{ position: 'absolute', right: '10%', bottom: '30%', width: '350px', height: '350px', background: 'radial-gradient(circle, rgba(4, 120, 87, 0.6) 0%, rgba(4, 120, 87, 0) 70%)', filter: 'blur(80px)', borderRadius: '50%' }}
+          />
+        </div>
+
       </motion.div>
 
       {/* Rest of the Portfolio (Bento Grid) */}
@@ -463,28 +505,55 @@ export default function Home() {
             what I do<span style={{color: 'var(--accent-text)'}}>.</span>
           </motion.h2>
           
-          <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '20px'}}>
+          <div className="services-bento">
             {/* Service 1 */}
             <motion.div 
               variants={fadeInUp}
-              style={{padding: '32px', borderRadius: '16px', background: '#161616', border: '1px solid #2a2a2a', transition: 'all 0.3s ease', display: 'flex', flexDirection: 'column', gap: '20px', cursor: 'default'}}
+              className="service-card-1"
+              style={{padding: '32px', borderRadius: '16px', background: '#161616', border: '1px solid #2a2a2a', transition: 'all 0.3s ease', display: 'flex', flexDirection: 'column', gap: '20px', cursor: 'default', position: 'relative', overflow: 'hidden'}}
               onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-6px)'; e.currentTarget.style.borderColor = '#10b981'; e.currentTarget.style.boxShadow = '0 10px 30px -10px rgba(16, 185, 129, 0.15)'; }}
               onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.borderColor = '#2a2a2a'; e.currentTarget.style.boxShadow = 'none'; }}
             >
-              <div style={{width: '56px', height: '56px', borderRadius: '14px', background: 'rgba(16, 185, 129, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#10b981'}}>
+              <div style={{width: '56px', height: '56px', borderRadius: '14px', background: 'rgba(16, 185, 129, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#10b981', position: 'relative', zIndex: 2}}>
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
               </div>
-              <div>
+              <div style={{position: 'relative', zIndex: 2, maxWidth: '60%'}}>
                 <h3 style={{fontSize: '1.25rem', fontWeight: 600, color: '#ffffff', marginBottom: '12px'}}>Front-End Development</h3>
                 <p style={{fontSize: '0.9rem', color: '#a3a3a3', lineHeight: 1.6}}>
                   Develop responsive and engaging user interfaces from design to implementation, ensuring exceptional user experience through effective UI/UX design.
                 </p>
               </div>
+              
+              {/* Decorative Browser Window */}
+              <motion.div 
+                initial={{ opacity: 0.5, y: 10 }}
+                whileHover={{ opacity: 1, y: 0, scale: 1.05 }}
+                transition={{ duration: 0.4 }}
+                className="hidden md:flex flex-col"
+                style={{ position: 'absolute', top: '32px', right: '32px', width: '220px', height: '140px', borderRadius: '8px', background: 'linear-gradient(145deg, #1e1e1e, #111111)', border: '1px solid #333', overflow: 'hidden', zIndex: 1, boxShadow: '0 10px 30px rgba(0,0,0,0.5)' }}
+              >
+                <div style={{ display: 'flex', gap: '6px', padding: '10px 12px', borderBottom: '1px solid #333', background: '#1a1a1a' }}>
+                  <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#ef4444' }} />
+                  <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#eab308' }} />
+                  <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#10b981' }} />
+                </div>
+                <div style={{ padding: '16px', display: 'flex', flexDirection: 'column', gap: '10px', flexGrow: 1 }}>
+                  <motion.div animate={{ width: ['40%', '70%', '40%'] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }} style={{ height: '8px', background: '#333', borderRadius: '4px' }} />
+                  <motion.div animate={{ width: ['80%', '50%', '80%'] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }} style={{ height: '8px', background: '#333', borderRadius: '4px' }} />
+                  <motion.div animate={{ width: ['30%', '60%', '30%'] }} transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 1 }} style={{ height: '8px', background: '#10b981', borderRadius: '4px', opacity: 0.6 }} />
+                  <div style={{display: 'flex', gap: '8px', marginTop: 'auto'}}>
+                    <div style={{width: '24px', height: '24px', borderRadius: '4px', background: '#2a2a2a'}} />
+                    <div style={{width: '24px', height: '24px', borderRadius: '4px', background: '#2a2a2a'}} />
+                    <div style={{width: '24px', height: '24px', borderRadius: '4px', background: 'rgba(16, 185, 129, 0.2)'}} />
+                  </div>
+                </div>
+              </motion.div>
             </motion.div>
 
             {/* Service 2 */}
             <motion.div 
               variants={fadeInUp}
+              className="service-card-2"
               style={{padding: '32px', borderRadius: '16px', background: '#161616', border: '1px solid #2a2a2a', transition: 'all 0.3s ease', display: 'flex', flexDirection: 'column', gap: '20px', cursor: 'default'}}
               onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-6px)'; e.currentTarget.style.borderColor = '#10b981'; e.currentTarget.style.boxShadow = '0 10px 30px -10px rgba(16, 185, 129, 0.15)'; }}
               onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.borderColor = '#2a2a2a'; e.currentTarget.style.boxShadow = 'none'; }}
@@ -498,19 +567,59 @@ export default function Home() {
                   Plan, organize, and manage web development projects from start to finish. Collaborate with clients and teams to ensure projects are completed on schedule.
                 </p>
               </div>
+              
+              <div style={{marginTop: 'auto', paddingTop: '32px'}}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                  {[60, 85, 50].map((width, i) => (
+                    <motion.div 
+                      key={i}
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: [0, 1, 1, 0], x: [-10, 0, 0, 10] }}
+                      transition={{ duration: 4, repeat: Infinity, delay: i * 1.2, times: [0, 0.1, 0.8, 1] }}
+                      style={{ display: 'flex', alignItems: 'center', gap: '12px', background: 'rgba(255,255,255,0.02)', padding: '12px 16px', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.05)' }}
+                    >
+                      <motion.div 
+                        initial={{ backgroundColor: 'transparent', borderColor: '#444' }}
+                        animate={{ backgroundColor: ['transparent', 'transparent', '#10b981', '#10b981', 'transparent'], borderColor: ['#444', '#444', '#10b981', '#10b981', '#444'] }}
+                        transition={{ duration: 4, repeat: Infinity, delay: i * 1.2, times: [0, 0.2, 0.3, 0.8, 1] }}
+                        style={{ width: '18px', height: '18px', borderRadius: '50%', border: '2px solid', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                      >
+                        <motion.svg 
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: [0, 0, 1, 1, 0] }}
+                          transition={{ duration: 4, repeat: Infinity, delay: i * 1.2, times: [0, 0.2, 0.3, 0.8, 1] }}
+                          width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#000" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"
+                        >
+                          <polyline points="20 6 9 17 4 12"></polyline>
+                        </motion.svg>
+                      </motion.div>
+                      <div style={{ height: '6px', background: '#333', borderRadius: '4px', width: `${width}%` }} />
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
             </motion.div>
 
             {/* Service 3 */}
             <motion.div 
               variants={fadeInUp}
-              style={{padding: '32px', borderRadius: '16px', background: '#161616', border: '1px solid #2a2a2a', transition: 'all 0.3s ease', display: 'flex', flexDirection: 'column', gap: '20px', cursor: 'default'}}
+              className="service-card-3"
+              style={{padding: '32px', borderRadius: '16px', background: '#161616', border: '1px solid #2a2a2a', transition: 'all 0.3s ease', display: 'flex', flexDirection: 'column', gap: '20px', cursor: 'default', position: 'relative', overflow: 'hidden'}}
               onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-6px)'; e.currentTarget.style.borderColor = '#10b981'; e.currentTarget.style.boxShadow = '0 10px 30px -10px rgba(16, 185, 129, 0.15)'; }}
               onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.borderColor = '#2a2a2a'; e.currentTarget.style.boxShadow = 'none'; }}
             >
-              <div style={{width: '56px', height: '56px', borderRadius: '14px', background: 'rgba(16, 185, 129, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#10b981'}}>
+              {/* Green Glass Circle */}
+              <div 
+                style={{ position: 'absolute', top: '-30px', right: '-30px', width: '120px', height: '120px', background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(16, 185, 129, 0.05) 100%)', backdropFilter: 'blur(10px)', borderRadius: '50%', border: '1px solid rgba(16, 185, 129, 0.3)', zIndex: 0 }}
+              />
+              <motion.div 
+                animate={{ y: [0, -4, 0], boxShadow: ['0 0 0 rgba(16, 185, 129, 0)', '0 4px 10px rgba(16, 185, 129, 0.2)', '0 0 0 rgba(16, 185, 129, 0)'] }}
+                transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+                style={{width: '56px', height: '56px', borderRadius: '14px', background: 'rgba(16, 185, 129, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#10b981', position: 'relative', zIndex: 1, border: '1px solid rgba(16,185,129,0.2)'}}
+              >
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
-              </div>
-              <div>
+              </motion.div>
+              <div style={{position: 'relative', zIndex: 1}}>
                 <h3 style={{fontSize: '1.25rem', fontWeight: 600, color: '#ffffff', marginBottom: '12px'}}>Back-End Development</h3>
                 <p style={{fontSize: '0.9rem', color: '#a3a3a3', lineHeight: 1.6}}>
                   Create and manage servers, databases, and application logic, and provide APIs and integration with third-party services.
@@ -521,14 +630,23 @@ export default function Home() {
             {/* Service 4 */}
             <motion.div 
               variants={fadeInUp}
-              style={{padding: '32px', borderRadius: '16px', background: '#161616', border: '1px solid #2a2a2a', transition: 'all 0.3s ease', display: 'flex', flexDirection: 'column', gap: '20px', cursor: 'default'}}
+              className="service-card-4"
+              style={{padding: '32px', borderRadius: '16px', background: '#161616', border: '1px solid #2a2a2a', transition: 'all 0.3s ease', display: 'flex', flexDirection: 'column', gap: '20px', cursor: 'default', position: 'relative', overflow: 'hidden'}}
               onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-6px)'; e.currentTarget.style.borderColor = '#10b981'; e.currentTarget.style.boxShadow = '0 10px 30px -10px rgba(16, 185, 129, 0.15)'; }}
               onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.borderColor = '#2a2a2a'; e.currentTarget.style.boxShadow = 'none'; }}
             >
-              <div style={{width: '56px', height: '56px', borderRadius: '14px', background: 'rgba(16, 185, 129, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#10b981'}}>
+              {/* Green Glass Circle */}
+              <div 
+                style={{ position: 'absolute', top: '-30px', right: '-30px', width: '120px', height: '120px', background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(16, 185, 129, 0.05) 100%)', backdropFilter: 'blur(10px)', borderRadius: '50%', border: '1px solid rgba(16, 185, 129, 0.3)', zIndex: 0 }}
+              />
+              <motion.div 
+                animate={{ y: [0, -4, 0], boxShadow: ['0 0 0 rgba(16, 185, 129, 0)', '0 4px 10px rgba(16, 185, 129, 0.2)', '0 0 0 rgba(16, 185, 129, 0)'] }}
+                transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
+                style={{width: '56px', height: '56px', borderRadius: '14px', background: 'rgba(16, 185, 129, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#10b981', position: 'relative', zIndex: 1, border: '1px solid rgba(16,185,129,0.2)'}}
+              >
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
-              </div>
-              <div>
+              </motion.div>
+              <div style={{position: 'relative', zIndex: 1}}>
                 <h3 style={{fontSize: '1.25rem', fontWeight: 600, color: '#ffffff', marginBottom: '12px'}}>Maintenance & Support</h3>
                 <p style={{fontSize: '0.9rem', color: '#a3a3a3', lineHeight: 1.6}}>
                   Monitor website performance and perform regular maintenance to ensure security and speed. Provide technical support according to client needs.
@@ -553,11 +671,31 @@ export default function Home() {
           <motion.div variants={fadeInUp} className="timeline-item">
             <div className="timeline-dot"></div>
             <div className="timeline-content">
-              <h3 className="timeline-title">Freelance Web Developer</h3>
-              <div className="timeline-meta">Self-Employed · Remote | Aug 2021 - Present</div>
-              <p className="timeline-desc">
-                Built and developed custom web applications for various clients. Experienced in using Laravel, PHP, and modern front-end technologies to deliver scalable and functional digital solutions.
-              </p>
+              {/* Particle Background */}
+              <div className="hidden md:block" style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, overflow: 'hidden', pointerEvents: 'none', zIndex: 0 }}>
+                {[
+                  { left: '10%', top: '20%', duration: 6, delay: 0 },
+                  { left: '40%', top: '70%', duration: 8, delay: 1 },
+                  { left: '80%', top: '30%', duration: 5, delay: 2 },
+                  { left: '60%', top: '80%', duration: 7, delay: 3 },
+                  { left: '90%', top: '10%', duration: 6, delay: 0.5 },
+                  { left: '30%', top: '50%', duration: 9, delay: 1.5 },
+                ].map((particle, i) => (
+                  <motion.div
+                    key={i}
+                    animate={{ y: [0, -30, 0], x: [0, 20, 0], opacity: [0.1, 0.6, 0.1] }}
+                    transition={{ duration: particle.duration, repeat: Infinity, delay: particle.delay, ease: 'easeInOut' }}
+                    style={{ position: 'absolute', left: particle.left, top: particle.top, width: '6px', height: '6px', background: '#10b981', borderRadius: '50%', filter: 'blur(2px)' }}
+                  />
+                ))}
+              </div>
+              <div style={{ position: 'relative', zIndex: 1 }}>
+                <h3 className="timeline-title">Freelance Web Developer</h3>
+                <div className="timeline-meta">Self-Employed · Remote | Aug 2021 - Present</div>
+                <p className="timeline-desc">
+                  Built and developed custom web applications for various clients. Experienced in using Laravel, PHP, and modern front-end technologies to deliver scalable and functional digital solutions.
+                </p>
+              </div>
             </div>
           </motion.div>
 
@@ -565,11 +703,31 @@ export default function Home() {
           <motion.div variants={fadeInUp} className="timeline-item">
             <div className="timeline-dot"></div>
             <div className="timeline-content">
-              <h3 className="timeline-title">Web Developer Intern</h3>
-              <div className="timeline-meta">PT. Ekosjaya Abadi Lestari · Sidoarjo | Mar 2021 - Apr 2021</div>
-              <p className="timeline-desc">
-                Developed a warehouse inventory information system using the CodeIgniter 3 framework to optimize tracking and stock management.
-              </p>
+              {/* Particle Background */}
+              <div className="hidden md:block" style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, overflow: 'hidden', pointerEvents: 'none', zIndex: 0 }}>
+                {[
+                  { left: '15%', top: '30%', duration: 7, delay: 0.2 },
+                  { left: '45%', top: '60%', duration: 6, delay: 1.5 },
+                  { left: '75%', top: '20%', duration: 8, delay: 0.5 },
+                  { left: '65%', top: '75%', duration: 5, delay: 2.5 },
+                  { left: '85%', top: '15%', duration: 9, delay: 1 },
+                  { left: '25%', top: '55%', duration: 6, delay: 0.8 },
+                ].map((particle, i) => (
+                  <motion.div
+                    key={i}
+                    animate={{ y: [0, -30, 0], x: [0, -20, 0], opacity: [0.1, 0.6, 0.1] }}
+                    transition={{ duration: particle.duration, repeat: Infinity, delay: particle.delay, ease: 'easeInOut' }}
+                    style={{ position: 'absolute', left: particle.left, top: particle.top, width: '6px', height: '6px', background: '#10b981', borderRadius: '50%', filter: 'blur(2px)' }}
+                  />
+                ))}
+              </div>
+              <div style={{ position: 'relative', zIndex: 1 }}>
+                <h3 className="timeline-title">Web Developer Intern</h3>
+                <div className="timeline-meta">PT. Ekosjaya Abadi Lestari · Sidoarjo | Mar 2021 - Apr 2021</div>
+                <p className="timeline-desc">
+                  Developed a warehouse inventory information system using the CodeIgniter 3 framework to optimize tracking and stock management.
+                </p>
+              </div>
             </div>
           </motion.div>
           
@@ -577,11 +735,31 @@ export default function Home() {
           <motion.div variants={fadeInUp} className="timeline-item">
             <div className="timeline-dot"></div>
             <div className="timeline-content">
-              <h3 className="timeline-title">Web Developer Intern</h3>
-              <div className="timeline-meta">CV. TR Makmur Sentosa · Sidoarjo | Jan 2021 - Feb 2021</div>
-              <p className="timeline-desc">
-                Actively participated in web development projects during the internship. Assisted the engineering team in building, testing, and maintaining website features.
-              </p>
+              {/* Particle Background */}
+              <div className="hidden md:block" style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, overflow: 'hidden', pointerEvents: 'none', zIndex: 0 }}>
+                {[
+                  { left: '20%', top: '15%', duration: 8, delay: 1 },
+                  { left: '50%', top: '80%', duration: 5, delay: 0 },
+                  { left: '70%', top: '40%', duration: 7, delay: 2 },
+                  { left: '85%', top: '65%', duration: 6, delay: 0.5 },
+                  { left: '35%', top: '25%', duration: 9, delay: 1.5 },
+                  { left: '10%', top: '60%', duration: 6, delay: 2.5 },
+                ].map((particle, i) => (
+                  <motion.div
+                    key={i}
+                    animate={{ y: [0, 30, 0], x: [0, 20, 0], opacity: [0.1, 0.6, 0.1] }}
+                    transition={{ duration: particle.duration, repeat: Infinity, delay: particle.delay, ease: 'easeInOut' }}
+                    style={{ position: 'absolute', left: particle.left, top: particle.top, width: '6px', height: '6px', background: '#10b981', borderRadius: '50%', filter: 'blur(2px)' }}
+                  />
+                ))}
+              </div>
+              <div style={{ position: 'relative', zIndex: 1 }}>
+                <h3 className="timeline-title">Web Developer Intern</h3>
+                <div className="timeline-meta">CV. TR Makmur Sentosa · Sidoarjo | Jan 2021 - Feb 2021</div>
+                <p className="timeline-desc">
+                  Actively participated in web development projects during the internship. Assisted the engineering team in building, testing, and maintaining website features.
+                </p>
+              </div>
             </div>
           </motion.div>
         </div>
@@ -591,15 +769,36 @@ export default function Home() {
       <motion.div 
         initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}
         className="contact-section"
+        style={{position: 'relative'}}
       >
-        <motion.div variants={fadeInUp} className="contact-content">
+        {/* Decorative Floating Elements */}
+        <motion.div
+          animate={{ y: [0, -20, 0], rotate: [0, 10, 0] }}
+          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+          style={{ position: 'absolute', top: '20%', left: '10%', width: '80px', height: '80px', borderRadius: '20px', background: 'linear-gradient(135deg, rgba(16,185,129,0.15) 0%, rgba(16,185,129,0) 100%)', border: '1px solid rgba(16,185,129,0.2)', backdropFilter: 'blur(4px)', zIndex: 0 }}
+          className="hidden md:block"
+        />
+        <motion.div
+          animate={{ y: [0, 30, 0], rotate: [0, -15, 0], scale: [1, 1.1, 1] }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+          style={{ position: 'absolute', bottom: '15%', right: '15%', width: '120px', height: '120px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(16,185,129,0.1) 0%, rgba(16,185,129,0) 70%)', border: '1px dashed rgba(16,185,129,0.2)', zIndex: 0 }}
+          className="hidden md:block"
+        />
+        <motion.div
+          animate={{ y: [0, -15, 0], x: [0, 10, 0] }}
+          transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+          style={{ position: 'absolute', top: '15%', right: '25%', width: '40px', height: '40px', borderRadius: '8px', background: 'rgba(16,185,129,0.05)', border: '1px solid rgba(16,185,129,0.3)', transform: 'rotate(45deg)', zIndex: 0 }}
+          className="hidden md:block"
+        />
+
+        <motion.div variants={fadeInUp} className="contact-content" style={{position: 'relative', zIndex: 1}}>
           <h2 style={{fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 300, letterSpacing: '-0.02em', marginBottom: '16px', lineHeight: 1.1}}>
             Have an idea?<br/>Let&apos;s build it together.
           </h2>
           <p style={{fontSize: '1.1rem', color: '#a3a3a3', maxWidth: '500px', margin: '0 auto'}}>
             I&apos;m currently available for new projects and open to exciting freelance opportunities. Feel free to reach out if you want to collaborate!
           </p>
-          <a href="mailto:triard78@gmail.com" className="btn-gold">
+          <a href="mailto:triard78@gmail.com" className="btn-gold" style={{position: 'relative', overflow: 'hidden'}}>
             Start a Project ↗
           </a>
         </motion.div>
