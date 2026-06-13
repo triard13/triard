@@ -1,15 +1,54 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-const projectsData = [
+interface Project {
+  id: number;
+  title: string;
+  image?: string;
+  shortDesc: string;
+  tags: string[];
+  link: string;
+  fullDesc: React.ReactNode | string;
+}
+
+const projectsData: Project[] = [
   {
     id: 1,
     title: "Toko Emas Majusari",
+    image: "/majusari.png",
     shortDesc: "As a Full-Stack Developer, I built a comprehensive system featuring a landing page, inventory management, and a streamlined sales processing workflow.",
-    tags: ["Laravel", "TailwindCSS", "JS", "MySQL"],
-    fullDesc: "Detailed case study for Toko Emas Majusari. This section will contain extended descriptions, screenshots, and problem-solving methodologies used during the development of the landing page, inventory, and sales system.",
-    link: "#"
+    tags: ["Laravel", "Tailwind CSS", "Alpine.js", "MySQL"],
+    link: "https://www.tokoemasmajusarimalang.com/",
+    fullDesc: (
+      <div style={{display: 'flex', flexDirection: 'column', gap: '24px'}}>
+        <div>
+          <strong style={{color: '#000', fontSize: '1.1rem'}}>The Challenge:</strong>
+          <p style={{marginTop: '8px'}}>Toko Emas Majusari needed to modernize their business operations. Relying on manual processes for inventory tracking and sales often led to inefficiencies and made it difficult to scale. They required a unified digital solution to showcase their products online and seamlessly manage store operations.</p>
+        </div>
+        
+        <div>
+          <strong style={{color: '#000', fontSize: '1.1rem'}}>My Role:</strong>
+          <p style={{marginTop: '8px'}}>As the sole Full-Stack Developer, I was responsible for the end-to-end delivery of the platform. This included designing the database architecture, building the backend APIs with Laravel, and crafting a responsive, intuitive user interface using Alpine.js and Tailwind CSS.</p>
+        </div>
+
+        <div>
+          <strong style={{color: '#000', fontSize: '1.1rem'}}>Key Features:</strong>
+          <ul style={{paddingLeft: '24px', marginTop: '12px', display: 'flex', flexDirection: 'column', gap: '8px'}}>
+            <li><strong>Landing Page:</strong> A professional and responsive landing page to showcase the store&apos;s profile and latest jewelry collections to potential customers.</li>
+            <li><strong>Inventory Management:</strong> Track incoming goods, supplier info, and automated low-stock notifications.</li>
+            <li><strong>Sales Management:</strong> Facilitate transactions via an intuitive POS interface and generate sales analytics.</li>
+            <li><strong>Customer Management:</strong> Maintain a comprehensive database for personalized service and targeted promotions.</li>
+            <li><strong>Reporting & Analytics:</strong> Detailed reports on sales performance and inventory status to support strategic planning.</li>
+          </ul>
+        </div>
+
+        <div style={{background: 'rgba(219, 165, 92, 0.1)', borderLeft: '4px solid #dba55c', padding: '20px', borderRadius: '0 8px 8px 0', marginTop: '8px'}}>
+          <strong style={{color: '#8c6023', fontSize: '1.1rem'}}>The Outcome:</strong>
+          <p style={{marginTop: '8px', color: '#333'}}>The system successfully streamlined the store&apos;s operations, improving efficiency and customer satisfaction. It provided valuable insights into sales trends, enabling better decision-making and strategic planning.</p>
+        </div>
+      </div>
+    )
   },
   {
     id: 2,
@@ -55,6 +94,17 @@ const projectsData = [
 
 export default function Home() {
   const [selectedProject, setSelectedProject] = useState<typeof projectsData[0] | null>(null);
+
+  useEffect(() => {
+    if (selectedProject) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [selectedProject]);
 
   return (
     <main>
@@ -210,16 +260,22 @@ export default function Home() {
               ))}
             </div>
 
-            <div style={{background: '#f8f9fa', padding: '32px', borderRadius: '16px', marginBottom: '32px', border: '1px dashed #cbd5e1', textAlign: 'center'}}>
-              <p style={{color: '#94a3b8', fontSize: '0.9rem'}}>[ Placeholder for High-Resolution Project Screenshot ]</p>
-            </div>
+            {selectedProject.image ? (
+              <div style={{marginBottom: '32px', borderRadius: '16px', overflow: 'hidden', border: '1px solid #e5e7eb'}}>
+                <img src={selectedProject.image} alt={selectedProject.title} style={{width: '100%', display: 'block'}} />
+              </div>
+            ) : (
+              <div style={{background: '#f8f9fa', padding: '32px', borderRadius: '16px', marginBottom: '32px', border: '1px dashed #cbd5e1', textAlign: 'center'}}>
+                <p style={{color: '#94a3b8', fontSize: '0.9rem'}}>[ Placeholder for High-Resolution Project Screenshot ]</p>
+              </div>
+            )}
 
             <h3 style={{fontSize: '1.5rem', fontWeight: 600, color: '#000', marginBottom: '16px'}}>About the Project</h3>
-            <p style={{fontSize: '1rem', color: '#475569', lineHeight: 1.8, marginBottom: '24px'}}>
+            <div style={{fontSize: '1rem', color: '#475569', lineHeight: 1.8, marginBottom: '32px'}}>
               {selectedProject.fullDesc}
-            </p>
+            </div>
 
-            <a href={selectedProject.link} className="btn-black" style={{marginTop: 0}} onClick={(e) => e.preventDefault()}>
+            <a href={selectedProject.link} target="_blank" rel="noopener noreferrer" className="btn-black" style={{marginTop: 0}}>
               Visit Live Site ↗
             </a>
           </div>
