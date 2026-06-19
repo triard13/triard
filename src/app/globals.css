@@ -137,7 +137,7 @@ a {
 }
 
 .nav-links a:hover {
-  color: var(--text-primary);
+  color: var(--nav-text);
 }
 
 .nav-logo {
